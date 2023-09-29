@@ -10,7 +10,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "ricette")
-public class Ricette {
+public class Recipe {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
