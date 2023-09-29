@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDate;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -20,7 +22,7 @@ public class Recipe {
     @NotBlank(message = "Add photo")
     private String urlImg;
     @NotBlank(message = "Estimate time preperation")
-    private int preperationTime;
+    private int estimateTime;
     @Max(10)
     @Min(1)
     @NotNull
@@ -61,12 +63,12 @@ public class Recipe {
         this.urlImg = urlImg;
     }
 
-    public int getPreperationTime() {
-        return preperationTime;
+    public int getEstimateTime() {
+        return estimateTime;
     }
 
-    public void setPreperationTime(int preperationTime) {
-        this.preperationTime = preperationTime;
+    public void setEstimateTime(int estimateTime) {
+        this.estimateTime = estimateTime;
     }
 
     public int getPortion() {
@@ -83,5 +85,8 @@ public class Recipe {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setDate(LocalDate now) {
     }
 }

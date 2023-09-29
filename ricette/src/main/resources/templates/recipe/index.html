@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="fragments/head :: head('Uncle Roger Recipes')"></th:block>
+
+
+<body>
+<th:block th:replace="fragments/navbar :: navbar('recipe')"></th:block>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Category</td>
+            <td>Ingredients</td>
+            <td>Portion</td>
+            <td>Recipe</td>
+            <td>Time</td>
+            <td>Options</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="recipe: ${recipe}" th:object="${recipe}">
+            <td th:text="*{title}"></td>
+            <td th:text="*{category.name}"></td>
+            <td th:text="*{ingredients}"></td>
+            <td th:text="*{portion}"></td>
+            <td th:text="*{description}"></td>
+            <td th:text="*{estimateTime}"></td>
+            <td><a class="btn btn-primary" th:href="@{/recipe/edit/{id}{id=*{id})}">Edit</a>
+                <form method="Save" th:action="@{/recipe/delete/{id}{id=${recipe.id})}">
+                    <button class="btn btn-danger" type="submit">Cancel</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-primary" href="/recipe/create">Add</a>
+</body>
+</html>

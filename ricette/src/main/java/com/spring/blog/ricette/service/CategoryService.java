@@ -15,8 +15,8 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository){
         this.categoryRepository = categoryRepository;
     }
-    public CategoryService getById(Integer id) {
-        return categoryRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "No Category"));
+    public Category getById(Integer id) {
+        return categoryRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "No category"));
     }
     public List<Category> getAll(){
         return categoryRepository.findAll();
